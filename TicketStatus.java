@@ -3,6 +3,6 @@ package enums;
 public enum TicketStatus 
 {
     ACTIVE,
-    USED,
-    CANCELLED
+    CANCELLED,
+    USED
 }
