@@ -30,7 +30,7 @@ public class PaymentRecord
 
     public String toFileLine()
     {
-        return paymentId + "|" + paymentMethod + "|" + amount;
+        return paymentId + " " + paymentMethod + " " + amount;
     }
 
     @Override
