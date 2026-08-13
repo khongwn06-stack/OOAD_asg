@@ -2,7 +2,7 @@ package payment;
 
 public class CardPayment implements Payment 
 {
-    private String cardNumber;
+	private String cardNumber;
     
     public String getCardNumber() 
     {
@@ -31,9 +31,4 @@ public class CardPayment implements Payment
             return true;
         }
     }
-
-
-
-
-
-
+}
