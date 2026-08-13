@@ -4,10 +4,7 @@ import payment.Payment;
 import payment.PaymentRecord;
 import payment.CashPayment;
 import payment.CardPayment;
-
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.io.IOException;
+import file.TxtFileManager;
 
 public class PaymentService
 {
@@ -17,7 +14,7 @@ public class PaymentService
     {
         if (payment == null)
         {
-            System.out.println("Please select a payment me.");
+            System.out.println("Please select a payment method.");
             return false;
         }
 
@@ -41,31 +38,18 @@ public class PaymentService
             {
                 paymentMethod = "Card";
             }
+            else
+            {
+                return false;
+            }
 
             String paymentId = String.format("P%04d", nextPaymentId++);
 
             PaymentRecord record = new PaymentRecord(paymentId, paymentMethod, amount);
 
-            savePayment(record);
+            TxtFileManager.savePayment(record);
         }
 
         return success;
-    }
-
-    private void savePayment(PaymentRecord record)
-    {
-        try
-        {
-            FileWriter fw = new FileWriter("payments.txt", true);
-            PrintWriter outputFile = new PrintWriter(fw);
-
-            outputFile.println(record.toFileLine());
-
-            outputFile.close();
-        }
-        catch (IOException e)
-        {
-            System.out.println("Error writing to file.");
-        }
     }
 }
