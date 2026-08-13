@@ -12,7 +12,7 @@ public class CashPayment implements Payment
         }
         else
         {
-            System.out.printf("Cash payment successful: RM %.2f received%n", amount);
+            System.out.printf("Cash payment successful: RM %.2f received.%n", amount);
             return true;
         }
     }
