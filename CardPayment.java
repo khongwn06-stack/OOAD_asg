@@ -26,11 +26,10 @@ public class CardPayment implements Payment
 
         else
         {
-            System.out.printf("Card payment successful: RM %.2f received%n", amount);
+            System.out.printf("Card payment successful: RM %.2f charged to card ending %s.%n", amount,
+                                cardNumber.substring(cardNumber.length() - 4));
             return true;
         }
-        
-        //System.out.printf("Card payment successful using card ending in %s: RM %.2f%n", getMaskedCardNumber(), amount);
     }
 
 
