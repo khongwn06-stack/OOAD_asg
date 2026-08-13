@@ -45,7 +45,7 @@ public class PaymentService
 
             String paymentId = String.format("P%04d", nextPaymentId++);
 
-            PaymentRecord record = new PaymentRecord(paymentId, paymentMethod, amount);
+            PaymentRecord record =  new PaymentRecord(paymentId, paymentMethod, amount);
 
             TxtFileManager.savePayment(record);
         }
