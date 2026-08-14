@@ -2,10 +2,12 @@ package Model;
 
 public class Station implements Comparable<Station>
 {
+    
     private String stationId;
     private String name;
     private String location;
 
+    
     public Station(String aStationId, String aName, String aLocation)
     {
         stationId = aStationId;
@@ -13,21 +15,25 @@ public class Station implements Comparable<Station>
         location = aLocation;
     }
 
+    
     public String getStationId()
     {
         return stationId;
     }
 
+    
     public String getName()
     {
         return name;
     }
 
+    
     public String getLocation()
     {
         return location;
     }
 
+  
     public void displayInfo()
     {
         System.out.println("Station ID : " + stationId);
