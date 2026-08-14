@@ -1,43 +1,34 @@
 package service;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Scanner;
+import java.util.ArrayList;
+
+import enums.TicketStatus;
+import model.Ticket;
 
 public class ReportService
 {
-    public double calculateTotalRevenue()
+    public void generateTicketReport(ArrayList<Ticket> tickets)
     {
+        int totalTickets = 0;
+        int cancelledTickets = 0;
         double totalRevenue = 0.0;
 
-        try
+        for (Ticket ticket : tickets)
         {
-            File file = new File("payments.txt");
-            Scanner inputFile = new Scanner(file);
-
-            while (inputFile.hasNext())
+            if (ticket.getStatus() == TicketStatus.CANCELLED)
             {
-                String paymentId = inputFile.next();
-                String paymentMethod = inputFile.next();
-                double amount = inputFile.nextDouble();
-
-                totalRevenue += amount;
+                cancelledTickets++;
             }
-
-            inputFile.close();
+            else
+            {
+            	totalTickets++;
+            	totalRevenue = totalRevenue + ticket.getFare();
+            }
         }
-        catch (IOException e)
-        {
-            System.out.println("Error reading payment file.");
-        }
-
-        return totalRevenue;
-    }
-
-    public void displayTotalRevenue()
-    {
-        double totalRevenue = calculateTotalRevenue();
-
-        System.out.printf("Total Revenue: RM %.2f%n", totalRevenue);
+        System.out.println();
+        System.out.println("===== Ticket Report =====");
+        System.out.println("Total Tickets Sold	: " + totalTickets);
+        System.out.println("Total Revenue			: RM" + String.format("%.2f", totalRevenue));
+        System.out.println("Cancelled Tickets		: " + cancelledTickets);
     }
 }
