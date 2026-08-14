@@ -1,5 +1,6 @@
 package model;
 
+import enums.TicketStatus;
 import enums.TicketType;
 
 public class Ticket 
@@ -57,16 +58,40 @@ public class Ticket
         this.status = TicketStatus.ACTIVE;
         this.fare = fare;
     }
-
+    
     public void printTicket() 
     {
-        System.out.println("========== METRO TICKET ==========");
+        System.out.println("\n========== METRO TICKET ==========");
         System.out.println("Ticket ID    : " + ticketId);
         System.out.println("Passenger    : " + passenger);
-        System.out.println("From         : " + source);
-        System.out.println("To           : " + destination);
-        System.out.println("Ticket Type  : " + ticketType);
-        System.out.printf ("Fare         : RM %.2f%n", fare);
-        System.out.println("Status       : " + status);
+        System.out.println("From           : " + source);
+        System.out.println("To                : " + destination);
+        System.out.println("Ticket Type: " + ticketType);
+        System.out.printf  ("Fare             : RM %.2f%n", fare);
+        System.out.println("Status          : " + status);
         System.out.println("==================================");
     }
+
+    public void cancelTicket()
+    {
+        status = TicketStatus.CANCELLED;
+        System.out.println("Ticket " + ticketId + " has been cancelled.");
+    }
+
+    public String toFileString()
+    {
+        return ticketId + " " + passenger.getUserId() + " " + source.getStationId() + " " + destination.getStationId() + " " + ticketType + " " + status + " " + fare;
+    }
+    
+    
+    @Override
+    public String toString() 
+    {
+        return "Ticket ID: " + ticketId +
+        			" | From: " + source +
+        			" | To: " + destination +
+        			" | Type: " + ticketType +
+        			" | Fare: RM " + String.format("%.2f", fare) +
+        			" | Status: " + status;
+    }
+}
