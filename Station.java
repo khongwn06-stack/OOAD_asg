@@ -1,52 +1,44 @@
-package model;
+package Model;
 
-public class Station 
+public class Station implements Comparable<Station>
 {
-	private String stationId;
-	private String stationName;
-	private String location;
+    private String stationId;
+    private String name;
+    private String location;
 
-public Station(String aStationId, String aStationName, String aLocation)
-	{
-		stationId = aStationId;
-		stationName = aStationName;
-		location = aLocaltion;
-	}
+    public Station(String aStationId, String aName, String aLocation)
+    {
+        stationId = aStationId;
+        name = aName;
+        location = aLocation;
+    }
 
-public String getStationId()
-	{
-		return stationId;
-	}
+    public String getStationId()
+    {
+        return stationId;
+    }
 
-public String getStationName()
-	{ 
-		return stationName;
-	}
+    public String getName()
+    {
+        return name;
+    }
 
-public String getLocation()
-	{
-		return location;
-	}
+    public String getLocation()
+    {
+        return location;
+    }
 
-public void setStationName(String newStationName)
-	{
-		stationName = newStationName;
-	}
+    public void displayInfo()
+    {
+        System.out.println("Station ID : " + stationId);
+        System.out.println("Name       : " + name);
+        System.out.println("Location   : " + location);
+    }
 
-public void setLocation(String newLocation)
-	{
-		location = newLocation;
-	}
-
-public void displayInfo()
-	{
-		System.out.println("Station ID   : " + stationId);
-		System.out.println("Station Name : " + stationName);
-		System.out.println("Location     : " + location);
-	}
+    @Override
+    public int compareTo(Station anotherStation)
+    {
+        return name.compareToIgnoreCase(anotherStation.getName());
+    }
+	
 }
-
-	
-		
-	
-	
