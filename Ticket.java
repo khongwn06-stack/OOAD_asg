@@ -62,13 +62,13 @@ public class Ticket
     public void printTicket() 
     {
         System.out.println("\n========== METRO TICKET ==========");
-        System.out.println("Ticket ID    : " + ticketId);
-        System.out.println("Passenger    : " + passenger);
-        System.out.println("From           : " + source);
-        System.out.println("To                : " + destination);
-        System.out.println("Ticket Type: " + ticketType);
-        System.out.printf  ("Fare             : RM %.2f%n", fare);
-        System.out.println("Status          : " + status);
+        System.out.println("Ticket ID   : " + ticketId);
+        System.out.println("Passenger   : " + passenger);
+        System.out.println("From        : " + source);
+        System.out.println("To          : " + destination);
+        System.out.println("Ticket Type : " + ticketType);
+        System.out.printf  ("Fare       : RM %.2f%n", fare);
+        System.out.println("Status      : " + status);
         System.out.println("==================================");
     }
 
