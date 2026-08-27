@@ -1,0 +1,2 @@
+U0001,System Admin,admin@metro.com,admin123,ADMIN,0.0
+U0002,wn,wn@metro.com,wn123,PASSENGER,101.39999999999999
