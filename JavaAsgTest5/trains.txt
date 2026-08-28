@@ -1,2 +1,0 @@
-T001,Serdang Train,30
-T002,KL,50

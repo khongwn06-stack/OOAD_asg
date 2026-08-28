@@ -1,2 +1,0 @@
-S0001,Serdang Hospital,Serdang
-S0002,Bukit Bintang,KL
