@@ -135,7 +135,7 @@ public class RouteService
             return false;
         }
         if (route.getDistanceKm() <= 0){
-            System.out.println("Distance must be greater than 0 km.");
+            System.out.println("Invalid distance. Please enter numbers only, without units (e.g. 12.5).");
             return false;
         }
         return true;
