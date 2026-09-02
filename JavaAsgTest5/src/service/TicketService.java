@@ -126,22 +126,22 @@ public class TicketService
                 // Change status
                 ticket.cancelTicket();
                 System.out.println();
+
+                System.out.printf(
+                        "RM %.2f has been refunded to your wallet.%n",
+                        ticket.getFare()
+                );
+
+                System.out.printf(
+                        "Current balance: RM %.2f%n\n",
+                        passenger.getBalance()
+                );
                 
                 // Update ticket file
                 TXTFileManager.saveTicket(ticket);
 
                 // Save updated passenger balance
                 userService.saveUsers();
-
-                System.out.printf(
-                        "\nRM %.2f has been refunded to your wallet.%n",
-                        ticket.getFare()
-                );
-
-                System.out.printf(
-                        "Current balance: RM %.2f%n",
-                        passenger.getBalance()
-                );
 
                 return;
             }
