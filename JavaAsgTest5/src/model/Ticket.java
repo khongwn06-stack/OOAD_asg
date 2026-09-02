@@ -87,6 +87,7 @@ public class Ticket
     
     public void printTicket() 
     {
+        System.out.println();
         System.out.println("Ticket ID   : " + ticketId);
         System.out.println("Passenger   : " + passenger.userId);
         System.out.println("From        : " + source.getStationName());
@@ -94,6 +95,7 @@ public class Ticket
         System.out.println("Ticket Type : " + ticketType);
         System.out.printf ("Fare        : RM %.2f%n", fare);
         System.out.println("Status      : " + status);
+        System.out.println();
     }
 
 
