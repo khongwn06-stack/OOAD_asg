@@ -32,7 +32,6 @@ public class Passenger extends User {
             return;
         }
         balance += amount;
-        System.out.printf("Top-up successful. New balance: RM%.2f%n", balance);
     }
 
     /**
