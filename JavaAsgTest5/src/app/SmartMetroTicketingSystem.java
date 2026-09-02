@@ -139,7 +139,7 @@ public class SmartMetroTicketingSystem {
             	            ticketService.buyTicket(passenger, route, type);
             	        } 
             	        else {
-            	            System.out.println("Ticket purchase cancelled.");
+            	            System.out.println("\nTicket purchase cancelled.");
             	        }
             	    }
             	}
