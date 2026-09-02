@@ -144,39 +144,42 @@ public class SmartMetroTicketingSystem {
             	    }
             	}
               case 4 -> {
-            	  	ticketService.viewActiveTickets(passenger);
-            	  	String ticketId = userModuleTest.readString("Enter ticket ID: ");
-	            	  	
-	              	try {
-	              		Ticket ticket = ticketService.findTicketById(ticketId);
-	
-	                    // Make sure the ticket belongs to this passenger
-	                    if (!ticket.getPassenger().getUserId().equals(passenger.getUserId())){
-	                        System.out.println("Ticket not found.");
-	                        break;
-	                    }
-	            	        
-	                    // Make sure the ticket is active
-	                    if (ticket.getStatus() != TicketStatus.ACTIVE) {
-	                        System.out.println("Only active tickets can be cancelled.");
-	                        break;
-	            	       }
-	                    
-		           	  	String confirmation = userModuleTest.readString(
-		           				"Are you sure you want to cancel ticket " + ticketId + "? (Y/N): ");
-				            
-		           	  	if (confirmation.equalsIgnoreCase("Y")){
-	            	 		ticketService.cancelTicket(ticketId);
-		                   }
-		                   else
-	                    {
-	                        System.out.println("Ticket cancellation cancelled.");
-	                    }
-	                }
-	              	catch (TicketNotFoundException e){
-	              		System.out.println(e.getMessage());
-	              	}
-            	}
+    				boolean hasActiveTickets = ticketService.viewActiveTickets(passenger);
+
+   			 		if (!hasActiveTickets) {
+        				break;
+    				}
+
+    				String ticketId = userModuleTest.readString("Enter ticket ID: ");
+
+    				try {
+        				Ticket ticket = ticketService.findTicketById(ticketId);
+
+        				// Make sure the ticket belongs to this passenger
+        				if (!ticket.getPassenger().getUserId().equals(passenger.getUserId())) {
+            				System.out.println("Ticket not found.");
+            				break;
+        				}
+
+        				// Make sure the ticket is active
+        				if (ticket.getStatus() != TicketStatus.ACTIVE) {
+            				System.out.println("Only active tickets can be cancelled.");
+            				break;
+        				}
+
+        				String confirmation = userModuleTest.readString(
+                				"Are you sure you want to cancel ticket " + ticketId + "? (Y/N): ");
+
+        				if (confirmation.equalsIgnoreCase("Y")) {
+            				ticketService.cancelTicket(ticketId);
+        				} else {
+            				System.out.println("Ticket cancellation cancelled.");
+        				}
+    				}
+    				catch (TicketNotFoundException e) {
+        				System.out.println(e.getMessage());
+    				}
+				}
               case 5 -> ticketService.viewTickets(passenger);
               case 0 -> {
             	  System.out.println();
