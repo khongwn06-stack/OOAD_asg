@@ -173,7 +173,7 @@ public class SmartMetroTicketingSystem {
         				if (confirmation.equalsIgnoreCase("Y")) {
             				ticketService.cancelTicket(ticketId);
         				} else {
-            				System.out.println("Ticket cancellation cancelled.");
+            				System.out.println("\nTicket cancellation cancelled.");
         				}
     				}
     				catch (TicketNotFoundException e) {
