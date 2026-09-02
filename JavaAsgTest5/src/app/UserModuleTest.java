@@ -112,7 +112,7 @@ public class UserModuleTest {
             passenger.topUp(amount);
             userService.saveUsers();
 
-            System.out.printf("Top up successful! Current balance: RM %.2f%n",
+            System.out.printf("Top-up successful. New balance: RM%.2f%n",
                 passenger.getBalance());
         }
         else{
