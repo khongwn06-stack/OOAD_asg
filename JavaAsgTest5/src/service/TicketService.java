@@ -34,7 +34,7 @@ public class TicketService
     {
     	if (passenger == null || route == null || type == null)
         {
-            System.out.println("Invalid ticket information.");
+            System.out.println("\nInvalid ticket information.");
             return null;
         }
     	
@@ -42,7 +42,7 @@ public class TicketService
         
         if (!passenger.deduct(fare))
         {
-            System.out.println("Insufficient balance.");
+            System.out.println("\nInsufficient balance.");
             return null;
         }
 
@@ -58,7 +58,7 @@ public class TicketService
         		);
         tickets.add(ticket);
 
-        System.out.println("Ticket purchased successfully!");
+        System.out.println("\nTicket purchased successfully!");
         ticket.printTicket();
         
         // Save Ticket
@@ -134,7 +134,7 @@ public class TicketService
                 userService.saveUsers();
 
                 System.out.printf(
-                        "RM %.2f has been refunded to your wallet.%n",
+                        "\nRM %.2f has been refunded to your wallet.%n",
                         ticket.getFare()
                 );
 
