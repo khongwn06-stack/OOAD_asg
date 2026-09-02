@@ -177,14 +177,14 @@ public class TicketService
         }
     }
     
-    public void viewActiveTickets(Passenger passenger)
+    public boolean viewActiveTickets(Passenger passenger)
     {
         System.out.println("\n========== ACTIVE METRO TICKET ==========");
 
         if (passenger == null)
         {
             System.out.println("Passenger not found.");
-            return;
+            return false;
         }
 
         boolean found = false;
@@ -204,6 +204,8 @@ public class TicketService
         {
             System.out.println("You have no active tickets to cancel.");
         }
+    
+        return found;
     }
 
     public ArrayList<Ticket> getTickets()
