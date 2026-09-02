@@ -102,7 +102,7 @@ public class Ticket
     public void cancelTicket()
     {
         status = TicketStatus.CANCELLED;
-        System.out.println("Ticket " + ticketId + " has been cancelled.");
+        System.out.println("\nTicket " + ticketId + " has been CANCELLED.");
     }
 
     public String toFileString()
